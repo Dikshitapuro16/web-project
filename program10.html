@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Button Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .content-box {
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            width: 50%;
+            min-height: 50px;
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Button Example</h1>
+    
+    <div id="content-box" class="content-box">
+        <p id="dynamic-text">This is the original content.</p>
+    </div>
+
+    <button id="change-button">Click to Change Content</button>
+
+    <script>
+        // JavaScript code to make the page interactive
+        const button = document.getElementById('change-button');
+        const dynamicText = document.getElementById('dynamic-text');
+        const contentBox = document.getElementById('content-box');
+        
+        let clickCount = 0;
+
+        // Add an event listener for the button click
+        button.addEventListener('click', function() {
+            clickCount++;
+            
+            if (clickCount % 2 === 1) {
+                // Change the text and button label on first click (odd count)
+                dynamicText.textContent = 'The content has been updated dynamically!';
+                button.textContent = 'Reset Content';
+                contentBox.style.backgroundColor = '#e0f7fa'; // Change background color
+            } else {
+                // Reset the text and button label on second click (even count)
+                dynamicText.textContent = 'This is the original content.';
+                button.textContent = 'Click to Change Content';
+                contentBox.style.backgroundColor = '#f9f9f9'; // Reset background color
+            }
+        });
+    </script>
+</body>
+</html>
